@@ -24,17 +24,12 @@
         return value;
     }
     cookies.set = function(key,value){
-        var str = '';
-        var data = this.data();
-        data.forEach(function(ele){
-            if(ele.key === key){
-                ele.value = value
-            }
-        });
-        data.forEach(function(ele){
-            str += ele.key + '=' + escape(ele.value) +';'
-        });
-        document.cookie = str;
+        document.cookie = key + '=' + escape(value);
+    }
+    cookies.del = function(key){
+        var date = new Date();
+        date.setDate(-1);
+        document.cookie = key + '=' + this.get('key') + ';expires=' + date.toGMTString();
     }
     window.$cookies =  cookies;
 })(window)
