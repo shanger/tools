@@ -9,3 +9,6 @@ my own tools
 * data _获取全部以json格式输出_
 * del _通过设置过期时间删除_
 ## to be continue ……
+## cookies
+* qurey _URL中search串序列化_
+* origin [location mdn](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/location)
