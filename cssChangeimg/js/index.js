@@ -31,7 +31,7 @@ hammertime.on("rotate", function (ev) {
     alert(ev.angle)
 });
 
-/* 双击还原 */
+/* 双击还原位置*/
 hammertime.on("doubletap", function (e) {
     test.style.transform ='translate3d(0,0,0)';
 });
