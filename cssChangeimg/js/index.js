@@ -8,22 +8,22 @@ hammertime.add(new Hammer.Rotate());
 var pinchlock = false;
 
 /* 缩放 */
-hammertime.on("pinchin", function (ev) {
+hammertime.on("pinchin pinchout", function (ev) {
     ev.srcEvent.stopPropagation()
     var translate = test.style.transform.match(/(translate3d\(.*\))/)?test.style.transform.match(/(translate3d\(.*\))/)[1]:''
     test.style.transform ='scale('+ev.scale+')' +' ' +translate;
 });
 
-hammertime.on("pinchout", function (ev) {
-    ev.srcEvent.stopPropagation()
-    // if(!pinchlock){
-        var translate = test.style.transform.match(/(translate3d\(.*\))/)?test.style.transform.match(/(translate3d\(.*\))/)[1]:''
-        test.style.transform ='scale('+ev.scale+')' +' ' +translate;
-    //     setTimeout(function(){
-    //         pinchlock = false
-    //     },1000)
-    // }
-});
+// hammertime.on("pinchout", function (ev) {
+//     ev.srcEvent.stopPropagation()
+//     if(!pinchlock){
+//         var translate = test.style.transform.match(/(translate3d\(.*\))/)?test.style.transform.match(/(translate3d\(.*\))/)[1]:''
+//         test.style.transform ='scale('+ev.scale+')' +' ' +translate;
+//         setTimeout(function(){
+//             pinchlock = false
+//         },1000)
+//     }
+// });
 /* 缩放结束 */
 /* 旋转 */
 hammertime.on("rotate", function (ev) {
