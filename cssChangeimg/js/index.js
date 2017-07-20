@@ -82,3 +82,4 @@ function getStyle (selector,style){
     var dom = document.querySelector(selector);
     return window.getComputedStyle?window.getComputedStyle(dom,null)[style]:dom.currentStyle[style]; 
 }
+//commit -a test
