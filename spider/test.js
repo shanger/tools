@@ -39,7 +39,7 @@ const c1= new Crawler({
 });
 let p = 0; 
 const cf= new Crawler({
-    maxConnections : 1000,
+    rateLimit: 500,
     callback : function (error, res, done) {
         if(error){
             console.log(error);

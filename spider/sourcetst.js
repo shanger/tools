@@ -1,6 +1,7 @@
 
 const Crawler = require("crawler");
-
+const jsdom = require('jsdom')
+const { JSDOM } = jsdom;
 const fs = require('fs');
 const c1= new Crawler({
     maxConnections : 10,
@@ -9,9 +10,10 @@ const c1= new Crawler({
             console.log(error);
         }else{
             let $ = res.$;
+            console.log($('#data').attr('data-state'))
             let sliceIndex = 0;
             // let str = $('#data').attr('data-state').replace(/(null,?)/g,'')
-            console.log($('#data').attr('data-state'))
+            // console.log($('#data').attr('data-state'))
             // str = str.replace(/\\(?:")/g,'')
             // sliceIndex = str.indexOf('"questions"')
             // str = str.slice(0,sliceIndex-1) + '}}'
