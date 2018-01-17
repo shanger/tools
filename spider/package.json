@@ -6,9 +6,12 @@
   "dependencies": {
     "crawler": "^1.1.2",
     "htmlparser": "^1.7.7",
-    "jsdom": "^11.5.1"
+    "jsdom": "^11.5.1",
+    "koa": "^2.4.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "koa": "^2.4.1"
+  },
   "scripts": {
     "test": "node test"
   },
