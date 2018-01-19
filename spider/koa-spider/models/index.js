@@ -2,7 +2,7 @@ const FriendLink = require('./model/Followers.js');
 
 module.exports.createData = async function(ctx,next,data){
     try{
-        await FriendLink.create(data);
+        await FriendLink.bulkCreate(data);
     }catch(e){
         console.log(e);
     }

@@ -5,6 +5,9 @@ const json = require('koa-json')
 const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
+const hbs = require('koa-hbs')
+const convert = require('koa-convert');
+const router = require('koa-router')()
 
 const index = require('./routes/index')
 const users = require('./routes/users')
@@ -22,8 +25,10 @@ app.use(json())
 app.use(logger())
 app.use(require('koa-static')(__dirname + '/public'))
 
-app.use(views(__dirname + '/views', {
-  extension: 'pug'
+app.use(hbs.middleware({
+  viewPath: __dirname + '/views',
+  defaultLayout: 'layout',
+  // partialsPath: __dirname + '/views/partials'
 }))
 
 // logger
@@ -35,7 +40,9 @@ app.use(async (ctx, next) => {
 })
 
 // routes
+router.use(index.routes()).use(index.allowedMethods());
 app.use(index.routes(), index.allowedMethods())
+router.use(users.routes()).use(users.allowedMethods());
 app.use(users.routes(), users.allowedMethods())
 
 // error-handling
